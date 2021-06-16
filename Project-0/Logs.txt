@@ -1,0 +1,2 @@
+2021-06-16 17:34:53 INFO  Launcher:15 - add method is running!
+2021-06-16 17:34:53 WARN  Launcher:21 - subtract method is running!
