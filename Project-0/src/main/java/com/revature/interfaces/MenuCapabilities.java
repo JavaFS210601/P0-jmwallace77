@@ -2,7 +2,9 @@ package com.revature.interfaces;
 
 import java.util.Scanner;
 
+import com.revature.classes.menu.Menu;
+
 public interface MenuCapabilities {
-	public abstract void display();
-	public abstract boolean menuSelection(Scanner in);
+	public abstract boolean display(Menu menus, boolean terminate);
+	public abstract boolean menuSelection(Scanner in, Menu menus, boolean terminate);
 }
