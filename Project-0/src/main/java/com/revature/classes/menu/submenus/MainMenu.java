@@ -2,6 +2,7 @@ package com.revature.classes.menu.submenus;
 
 import java.util.Scanner;
 
+import com.revature.classes.ValidationMethods;
 import com.revature.classes.menu.Menu;
 
 public class MainMenu extends Menu {
@@ -21,19 +22,19 @@ public class MainMenu extends Menu {
 		System.out.println("3. Exit");
 		System.out.println("=======================================");
 		
-		terminate = menuSelection(in, menus, terminate);
+		terminate = menuSelection(menus, terminate);
 		
 		return terminate;
 	}
 
-	public boolean menuSelection(Scanner in, Menu menus, boolean terminate) {
-		switch(in.nextInt()) {
+	public boolean menuSelection(Menu menus, boolean terminate) {
+		switch(ValidationMethods.menuValidation(in)) {
 			case 1:
-				menus = new LoginMenu(in);
+				menus = new LoginMenu(new Scanner(System.in));
 				terminate = menus.display(menus, terminate);
 				break;
 			case 2:
-				menus = new GuestMenu(in);
+				menus = new GuestMenu(new Scanner(System.in));
 				terminate = menus.display(menus, terminate);
 				break;
 			case 3:

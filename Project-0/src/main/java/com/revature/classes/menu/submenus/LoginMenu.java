@@ -14,16 +14,16 @@ public class LoginMenu extends Menu {
 
 	public boolean display(Menu menus, boolean terminate) {
 		
-		terminate = menuSelection(in, menus, terminate);
+		terminate = menuSelection(menus, terminate);
 		return terminate;
 
 	}
 
-	public boolean menuSelection(Scanner in, Menu menus, boolean terminate) {
+	public boolean menuSelection(Menu menus, boolean terminate) {
 		// TODO Auto-generated method stub
 		switch(1) {
 			case 1:
-				menus = new EmployeeMenu(in);
+				menus = new EmployeeMenu(new Scanner(System.in));
 				terminate = menus.display(menus, terminate);
 				break;
 		}
