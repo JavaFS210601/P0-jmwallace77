@@ -1,7 +1,5 @@
 package com.revature.interfaces;
 
-import java.util.Scanner;
-
 import com.revature.classes.menu.Menu;
 
 public interface MenuCapabilities {

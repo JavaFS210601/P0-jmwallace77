@@ -14,6 +14,11 @@
   <dependencies>
   		<!-- We want to use Log4J for Logging. We need a Log4J dependency -->
  		<!-- I simply googled Log4J dependency and grabbed the one for Maven -->
+ 	<dependency>
+		<groupId>org.postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+		<version>42.2.14</version>
+	</dependency>
 	 <dependency>
 	    <groupId>org.apache.logging.log4j</groupId>
 	    <artifactId>log4j-core</artifactId>

@@ -1,5 +1,6 @@
 package com.revature.classes.menu.submenus;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import com.revature.classes.ValidationMethods;
@@ -20,7 +21,7 @@ public class EmployeeMenu extends Menu{
 		System.out.println("1. Main");
 		System.out.println("2. Exit");
 		System.out.println("=======================================");
-		
+
 		terminate = menuSelection(menus, terminate);
 		
 		return terminate;
