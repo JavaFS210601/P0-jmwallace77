@@ -12,7 +12,7 @@ public class GuestMenu extends Menu {
 		super();
 		this.in = in;
 	}
-
+	@Override
 	public boolean display(Menu menus, boolean terminate) {
 		System.out.println("=======================================");
 		System.out.println("Guest");
@@ -25,7 +25,8 @@ public class GuestMenu extends Menu {
 		
 		return terminate;
 	}
-
+	
+	@Override
 	public boolean menuSelection(Menu menus, boolean terminate) {
 		switch(ValidationMethods.menuValidation(in)) {
 			case 1:

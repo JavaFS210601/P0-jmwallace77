@@ -13,6 +13,7 @@ public class MainMenu extends Menu {
 		this.in = in;
 	}
 
+	@Override
 	public boolean display(Menu menus, boolean terminate) {
 		System.out.println("=======================================");
 		System.out.println("Main");
@@ -27,6 +28,7 @@ public class MainMenu extends Menu {
 		return terminate;
 	}
 
+	@Override
 	public boolean menuSelection(Menu menus, boolean terminate) {
 		switch(ValidationMethods.menuValidation(in)) {
 			case 1:

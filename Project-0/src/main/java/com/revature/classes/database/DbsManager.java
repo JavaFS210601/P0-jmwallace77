@@ -14,7 +14,7 @@ public class DbsManager {
 			System.out.println("Class was not found");
 			e.printStackTrace();
 		}
-		String url = "jdbc:postgresql://javafs210601.cen4ygabfg2t.us-east-2.rds.amazonaws.com:5432/postgres?user=postgres&password=1JWall670581";
+		String url = System.getenv("url");
 		return DriverManager.getConnection(url);
 	}
 	

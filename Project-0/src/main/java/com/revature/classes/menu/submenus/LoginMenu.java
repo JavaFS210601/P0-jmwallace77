@@ -9,13 +9,14 @@ import com.revature.classes.users.User;
 
 public class LoginMenu extends Menu {
 	private Scanner in;
-	private User user = new User();
+	static User user = new User();
 	private boolean loginTryAgain = true;
 	public LoginMenu(Scanner in) {
 		super();
 		this.in = in;
 	}
-
+	
+	@Override
 	public boolean display(Menu menus, boolean terminate) {
 		while(loginTryAgain) {
 			System.out.println("=======================================");
@@ -43,7 +44,8 @@ public class LoginMenu extends Menu {
 		return terminate;
 
 	}
-
+	
+	@Override
 	public boolean menuSelection(Menu menus, boolean terminate) {
 		if(loginTryAgain == true) {
 			switch(ValidationMethods.menuValidation(in)) {

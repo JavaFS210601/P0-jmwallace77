@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ValidationMethods {
 	static int input;
-	
+	static double inputD;
 	//checking menu selection input
 	public static int menuValidation(Scanner in) {
 		
@@ -19,5 +19,38 @@ public class ValidationMethods {
 			menuValidation(in);
 		}
 		return input;
+	}
+	
+	public static String checkTitle(Scanner in) {
+		boolean titleCheck = true;
+		String title;
+		do {
+			title = in.nextLine().toLowerCase();
+			if(title.equals("employee") || title.equals("manager")) {
+				titleCheck = false;
+			}
+			else {
+				System.out.println("Invalid title. (employee, manager)");
+			}
+		}while(titleCheck == true);
+		
+		return title;
+	}
+	
+	public static double wageCheck(Scanner in) {
+		
+		try {
+			inputD = Double.parseDouble(in.nextLine());
+			return inputD;
+		}
+		catch(ArithmeticException e) {
+			System.out.println("Invalid input");
+			wageCheck(in);
+		}
+		catch(NumberFormatException e) {
+			System.out.println("Invalid input");
+			wageCheck(in);
+		}
+		return inputD;
 	}
 }

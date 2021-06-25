@@ -2,6 +2,7 @@ package com.revature.classes.users;
 
 public class User {
 	private int userID;
+	private String name;
 	private String userType;
 	private String username;
 	private String password;
@@ -21,6 +22,14 @@ public class User {
 
 	public void setUserID(int userID) {
 		this.userID = userID;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public String getUsername() {
