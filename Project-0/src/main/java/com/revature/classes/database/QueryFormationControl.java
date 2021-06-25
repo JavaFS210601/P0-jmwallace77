@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Scanner;
 
 import org.postgresql.core.Query;
@@ -157,6 +159,54 @@ public class QueryFormationControl {
 		} catch (SQLException e) {
 			System.out.println("Employee not removed");
 			//e.printStackTrace();
+		}
+	}
+	
+	static public void checkTimeSheet(User user) {
+		try(Connection conn = DbsManager.getConnection()){
+			ResultSet result = null;
+			int year = ZonedDateTime.now(ZoneId.of("US/Central")).getYear();
+			
+			String sql = "SELECT periodYear FROM \"p0\".timeSheets "
+					+ "WHERE userID = ?;";
+			
+			PreparedStatement pStatement = conn.prepareStatement(sql);
+			pStatement.setInt(1, user.getUserID());
+			result = pStatement.executeQuery();
+			if(result.next() == true) {
+				do {
+					if(year == result.getInt("periodYear")) {
+						break;
+					}
+					else {
+						addTimeSheet(user, year);
+					}
+				}while(result.next());
+			}
+			else {
+				addTimeSheet(user, year);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private static void addTimeSheet(User user, int year) {
+		try(Connection conn = DbsManager.getConnection()){
+			
+			String sql = "INSERT INTO \"p0\".timeSheets(userID, periodYear)"
+					+ "VALUES(?, ?);";
+			
+			PreparedStatement pStatement = conn.prepareStatement(sql);
+			pStatement.setInt(1, user.getUserID());
+			pStatement.setInt(2, year);
+			pStatement.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

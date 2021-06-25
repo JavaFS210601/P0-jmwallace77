@@ -41,6 +41,10 @@ public class ValidationMethods {
 		
 		try {
 			inputD = Double.parseDouble(in.nextLine());
+			if(inputD < 8 | inputD > 99) {
+				System.out.println("Wage to little or to great");
+				wageCheck(in);
+			}
 			return inputD;
 		}
 		catch(ArithmeticException e) {

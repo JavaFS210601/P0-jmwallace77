@@ -40,11 +40,11 @@ public class EmployeeMenu extends Menu{
 	public boolean menuSelection(Menu menus, boolean terminate) {
 		switch(ValidationMethods.menuValidation(in)) {
 			case 1:
-				menus = new MainMenu(new Scanner(System.in));
-				terminate = menus.display(menus, terminate);
+				user.addTimeSheet(user);
 				break;
 			case 2:
-				terminate = true;
+				menus = new MainMenu(new Scanner(System.in));
+				terminate = menus.display(menus, terminate);
 				break;
 			case 3:
 				terminate = false;
