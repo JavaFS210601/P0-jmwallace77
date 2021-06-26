@@ -2,6 +2,8 @@ package com.revature.classes.menu.submenus;
 
 import java.util.Scanner;
 
+import org.apache.logging.log4j.Logger;
+
 import com.revature.classes.ValidationMethods;
 import com.revature.classes.menu.Menu;
 
@@ -14,7 +16,8 @@ public class MainMenu extends Menu {
 	}
 
 	@Override
-	public boolean display(Menu menus, boolean terminate) {
+	public boolean display(Menu menus, boolean terminate, Logger log) {
+		log.info("In the main menu");
 		System.out.println("=======================================");
 		System.out.println("Main");
 		System.out.println("=======================================");
@@ -23,21 +26,21 @@ public class MainMenu extends Menu {
 		System.out.println("3. Exit");
 		System.out.println("=======================================");
 		
-		terminate = menuSelection(menus, terminate);
+		terminate = menuSelection(menus, terminate, log);
 		
 		return terminate;
 	}
 
 	@Override
-	public boolean menuSelection(Menu menus, boolean terminate) {
+	public boolean menuSelection(Menu menus, boolean terminate, Logger log) {
 		switch(ValidationMethods.menuValidation(in)) {
 			case 1:
 				menus = new LoginMenu(new Scanner(System.in));
-				terminate = menus.display(menus, terminate);
+				terminate = menus.display(menus, terminate, log);
 				break;
 			case 2:
 				menus = new GuestMenu(new Scanner(System.in));
-				terminate = menus.display(menus, terminate);
+				terminate = menus.display(menus, terminate, log);
 				break;
 			case 3:
 				terminate = true;

@@ -20,12 +20,13 @@ public class Launcher {
 	static boolean terminate = false;
 	
 	public static void main(String[] args) {
-
+		
+		//test for database connection
 		try(Connection conn = DbsManager.getConnection()){
-			
+			log.info("Connection Successful");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.debug("Connection Failed", e);
+			System.out.println("Connection Failed");
 			System.exit(0);
 		}
 		
@@ -33,7 +34,7 @@ public class Launcher {
 		//terminated upon user request
 		while(terminate == false) {
 			menus = new MainMenu(new Scanner(System.in));
-			terminate = menus.display(menus, terminate);
+			terminate = menus.display(menus, terminate, log);
 		}	
 	}
 }

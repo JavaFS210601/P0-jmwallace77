@@ -1,4 +1,6 @@
-2021-06-16 17:34:53 INFO  Launcher:15 - add method is running!
-2021-06-16 17:34:53 WARN  Launcher:21 - subtract method is running!
-2021-06-17 08:59:32 INFO  Launcher:21 - add method is running!
-2021-06-17 08:59:32 WARN  Launcher:27 - subtract method is running!
+
+2021-06-26 11:22:37 INFO  Launcher:26 - Connection Successful
+2021-06-26 11:22:37 INFO  Launcher:20 - In the main menu
+2021-06-26 11:22:40 INFO  Launcher:19 - In the guest menu
+2021-06-26 11:22:41 INFO  Launcher:20 - In the main menu
+2021-06-26 11:22:45 INFO  Launcher:19 - In the guest menu

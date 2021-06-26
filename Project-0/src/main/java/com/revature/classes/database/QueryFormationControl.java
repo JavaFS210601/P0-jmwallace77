@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-
+import org.apache.logging.log4j.Logger;
 
 import com.revature.classes.ValidationMethods;
 import com.revature.classes.users.User;
@@ -38,7 +38,7 @@ public class QueryFormationControl {
 		}
 	}
 	
-	static public String getUserType(User user) {
+	static public String getUserType(User user, Logger log) {
 		try(Connection conn = DbsManager.getConnection()){
 			ResultSet result = null;
 			String sql = "SELECT userType FROM \"p0\".users "
@@ -53,11 +53,12 @@ public class QueryFormationControl {
 			return user.getUserType();
 		} catch (SQLException e) {
 			System.out.println("userID not found");
+			log.debug("userID not found", e);
 			return " ";
 		}
 	}
 	
-	static public String getNameWage(User user) {
+	static public String getNameWage(User user, Logger log) {
 		try(Connection conn = DbsManager.getConnection()){
 			
 			ResultSet result = null;
@@ -74,13 +75,13 @@ public class QueryFormationControl {
 			
 		} catch (SQLException e) {
 			System.out.println("Name not found");
-			//e.printStackTrace();
+			log.debug("Name not found", e);
 			return " ";
 		}
 	}
 	
 	//add user to the database
-	static public void insertUser(Scanner in) {
+	static public void insertUser(Scanner in, Logger log) {
 		try(Connection conn = DbsManager.getConnection()){
 			//get user info from manager input
 			System.out.println("Fill in the data fields: \n");
@@ -117,11 +118,11 @@ public class QueryFormationControl {
 			
 		} catch (SQLException e) {
 			System.out.println("Employee not added");
-			//e.printStackTrace();
+			log.debug("Employee not added", e);
 		}
 	}
 	
-	static public void removeUser(Scanner in) {
+	static public void removeUser(Scanner in, Logger log) {
 		try(Connection conn = DbsManager.getConnection()){
 			//delete user info which the manager input selected
 			ResultSet result = null;
@@ -160,11 +161,11 @@ public class QueryFormationControl {
 			
 		} catch (SQLException e) {
 			System.out.println("Employee not removed");
-			//e.printStackTrace();
+			log.debug("Employee not removed", e);
 		}
 	}
 	
-	static public void checkTimeSheet(User user) {
+	static public void checkTimeSheet(User user, Logger log) {
 		try(Connection conn = DbsManager.getConnection()){
 			ResultSet result = null;
 			int year = ZonedDateTime.now(ZoneId.of("US/Central")).getYear();
@@ -181,20 +182,21 @@ public class QueryFormationControl {
 						break;
 					}
 					else {
-						addTimeSheet(user, year);
+						addTimeSheet(user, year, log);
 					}
 				}while(result.next());
 			}
 			else {
-				addTimeSheet(user, year);
+				addTimeSheet(user, year, log);
 			}
 			
 		} catch (SQLException e) {
 			System.out.println("Failed to check timesheet existence.");
+			log.debug("Failed to check timesheet existence.", e);
 		}
 	}
 	
-	private static void addTimeSheet(User user, int year) {
+	private static void addTimeSheet(User user, int year, Logger log) {
 		try(Connection conn = DbsManager.getConnection()){
 			
 			String sql = "INSERT INTO \"p0\".timeSheets(userID, periodYear)"
@@ -207,10 +209,11 @@ public class QueryFormationControl {
 			
 		} catch (SQLException e) {
 			System.out.println("Failed to add time sheet.");
+			log.debug("Failed to add time sheet.", e);
 		}
 	}
 
-	public static void insertTimeSheetEntries(User user, Scanner in) {
+	public static void insertTimeSheetEntries(User user, Scanner in, Logger log) {
 		try(Connection conn = DbsManager.getConnection()){
 			ResultSet rPayPeriod = null;
 			ResultSet rTimeSheetID = null;
@@ -245,15 +248,14 @@ public class QueryFormationControl {
 			pStatement.setDouble(4, user.getWage());
 			pStatement.executeUpdate();
 			
-			weeklyEntries(user, in, rTimeSheetID);
+			weeklyEntries(user, in, rTimeSheetID, log);
 			
 		} catch (SQLException e) {
-			
-			e.printStackTrace();
+			log.debug("Failed to insert time entry", e);
 		}
 	}
 	
-	private static void weeklyEntries(User user, Scanner in, ResultSet rTimeSheetID) {
+	private static void weeklyEntries(User user, Scanner in, ResultSet rTimeSheetID, Logger log) {
 		try(Connection conn = DbsManager.getConnection()){
 			ResultSet rEntry = null;
 		
@@ -297,8 +299,7 @@ public class QueryFormationControl {
 			pStatement.executeUpdate();
 			
 		} catch (SQLException e) {
-			
-			e.printStackTrace();
+			log.debug("Failed to add weekly entry", e);
 		}
 	}
 }
