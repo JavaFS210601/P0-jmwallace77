@@ -1,7 +1,6 @@
 package com.revature.classes.database;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +9,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-import org.postgresql.core.Query;
+
 
 import com.revature.classes.ValidationMethods;
 import com.revature.classes.users.User;
@@ -211,7 +210,7 @@ public class QueryFormationControl {
 		}
 	}
 
-	public static void insertTimeSheetEntries(User user) {
+	public static void insertTimeSheetEntries(User user, Scanner in) {
 		try(Connection conn = DbsManager.getConnection()){
 			ResultSet rPayPeriod = null;
 			ResultSet rTimeSheetID = null;
@@ -246,6 +245,56 @@ public class QueryFormationControl {
 			pStatement.setDouble(4, user.getWage());
 			pStatement.executeUpdate();
 			
+			weeklyEntries(user, in, rTimeSheetID);
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+	}
+	
+	private static void weeklyEntries(User user, Scanner in, ResultSet rTimeSheetID) {
+		try(Connection conn = DbsManager.getConnection()){
+			ResultSet rEntry = null;
+		
+			String sql = "SELECT Max(entryID) AS maxID FROM \"p0\".timePeriodEntries "
+				+ "WHERE userID = ? AND timeSheetID = ?";
+		
+			PreparedStatement pStatement = conn.prepareStatement(sql);
+			pStatement.setInt(1, user.getUserID());
+			pStatement.setInt(2, rTimeSheetID.getInt("timeSheetID"));
+			rEntry = pStatement.executeQuery();
+			
+			System.out.println("Enter hours worked: ");
+			System.out.println("Sunday: ");
+			double sunday = ValidationMethods.hoursValidation(in);
+			System.out.println("Monday: ");
+			double monday = ValidationMethods.hoursValidation(in);
+			System.out.println("Tuesday: ");
+			double tuesday = ValidationMethods.hoursValidation(in);
+			System.out.println("Wednesday: ");
+			double wednesday = ValidationMethods.hoursValidation(in);
+			System.out.println("Thursday: ");
+			double thursday = ValidationMethods.hoursValidation(in);
+			System.out.println("Friday: ");
+			double friday = ValidationMethods.hoursValidation(in);
+			System.out.println("Saturday: ");
+			double saturday = ValidationMethods.hoursValidation(in);
+			
+			sql = "INSERT INTO \"p0\".weeklyEntries(entryID, sunday, monday, tuesday, wednesday, thursday, friday, saturday) "
+					+ "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
+			
+			pStatement = conn.prepareStatement(sql);
+			rEntry.next();
+			pStatement.setInt(1, rEntry.getInt("maxID"));
+			pStatement.setDouble(2, sunday);
+			pStatement.setDouble(3, monday);
+			pStatement.setDouble(4, tuesday);
+			pStatement.setDouble(5, wednesday);
+			pStatement.setDouble(6, thursday);
+			pStatement.setDouble(7, friday);
+			pStatement.setDouble(8, saturday);
+			pStatement.executeUpdate();
 			
 		} catch (SQLException e) {
 			

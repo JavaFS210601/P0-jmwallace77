@@ -41,7 +41,8 @@ public class EmployeeMenu extends Menu{
 		switch(ValidationMethods.menuValidation(in)) {
 			case 1:
 				user.addTimeSheet(user);
-				user.addTimeSheetEntries(user);
+				user.addTimeSheetEntries(user, in);
+				terminate = menus.display(menus, terminate);
 				break;
 			case 2:
 				menus = new MainMenu(new Scanner(System.in));

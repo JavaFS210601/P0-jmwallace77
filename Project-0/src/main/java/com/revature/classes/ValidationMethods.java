@@ -57,4 +57,21 @@ public class ValidationMethods {
 		}
 		return inputD;
 	}
+	
+	public static double hoursValidation(Scanner in) {
+		
+		try {
+			inputD = Double.parseDouble(in.nextLine());
+			return inputD;
+		}
+		catch(ArithmeticException e) {
+			System.out.println("Invalid input");
+			hoursValidation(in);
+		}
+		catch(NumberFormatException e) {
+			System.out.println("Invalid input");
+			hoursValidation(in);
+		}
+		return inputD;
+	}
 }
