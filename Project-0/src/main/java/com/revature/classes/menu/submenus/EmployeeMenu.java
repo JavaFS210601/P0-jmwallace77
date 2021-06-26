@@ -25,7 +25,7 @@ public class EmployeeMenu extends Menu{
 		user.setUserType(LoginMenu.user.getUserType());
 		
 		System.out.println("=======================================");
-		System.out.println("Welcome " + QueryFormationControl.getName(user));
+		System.out.println("Welcome " + QueryFormationControl.getNameWage(user));
 		System.out.println("=======================================");
 		System.out.println("1. Time Sheet");
 		System.out.println("2. Main");
@@ -41,6 +41,7 @@ public class EmployeeMenu extends Menu{
 		switch(ValidationMethods.menuValidation(in)) {
 			case 1:
 				user.addTimeSheet(user);
+				user.addTimeSheetEntries(user);
 				break;
 			case 2:
 				menus = new MainMenu(new Scanner(System.in));

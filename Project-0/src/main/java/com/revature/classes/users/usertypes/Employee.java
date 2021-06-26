@@ -14,6 +14,9 @@ public class Employee extends User implements UserBehaviors{
 		QueryFormationControl.checkTimeSheet(user);
 	}
 	
+	public void addTimeSheetEntries(User user) {
+		QueryFormationControl.insertTimeSheetEntries(user);
+	}
 	public void editTimeSheet() {
 		
 	}

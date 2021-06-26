@@ -6,7 +6,7 @@ public class User {
 	private String userType;
 	private String username;
 	private String password;
-	
+	private double wage;
 	
 	public String getUserType() {
 		return userType;
@@ -47,4 +47,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public double getWage() {
+		return wage;
+	}
+
+	public void setWage(double wage) {
+		this.wage = wage;
+	}
+
 }

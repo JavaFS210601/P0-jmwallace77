@@ -1,11 +1,13 @@
 package com.revature.classes.database;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import org.postgresql.core.Query;
@@ -56,17 +58,18 @@ public class QueryFormationControl {
 		}
 	}
 	
-	static public String getName(User user) {
+	static public String getNameWage(User user) {
 		try(Connection conn = DbsManager.getConnection()){
 			
 			ResultSet result = null;
-			String sql = "SELECT (firstName || ' ' || lastName) AS \"name\" FROM \"p0\".users WHERE userID = ?;";
+			String sql = "SELECT currentWagePerHour, (firstName || ' ' || lastName) AS \"name\" FROM \"p0\".users WHERE userID = ?;";
 			
 			PreparedStatement pStatement = conn.prepareStatement(sql);
 			pStatement.setInt(1, user.getUserID());
 			result = pStatement.executeQuery();
 			result.next();
 			user.setName(result.getString("name"));
+			user.setWage(result.getDouble("currentWagePerHour"));
 			
 			return user.getName();
 			
@@ -188,8 +191,7 @@ public class QueryFormationControl {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Failed to check timesheet existence.");
 		}
 	}
 	
@@ -205,7 +207,48 @@ public class QueryFormationControl {
 			pStatement.executeUpdate();
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Failed to add time sheet.");
+		}
+	}
+
+	public static void insertTimeSheetEntries(User user) {
+		try(Connection conn = DbsManager.getConnection()){
+			ResultSet rPayPeriod = null;
+			ResultSet rTimeSheetID = null;
+			
+			String sql = "SELECT payPeriod FROM \"p0\".payPeriods "
+					+ "WHERE months @> DATE ?;";
+			
+			PreparedStatement pStatement = conn.prepareStatement(sql);
+			String date = ZonedDateTime.now(ZoneId.of("US/Central")).format(DateTimeFormatter.ISO_LOCAL_DATE);
+			//Date sqlDate = Date.valueOf(date);
+			pStatement.setString(1, date);
+			pStatement = conn.prepareStatement(pStatement.toString());
+			rPayPeriod = pStatement.executeQuery();
+			
+			sql = "SELECT timeSheetID FROM \"p0\".timeSheets "
+					+ "WHERE userID = ? AND periodYear = ?;";
+			
+			pStatement = conn.prepareStatement(sql);
+			pStatement.setInt(1, user.getUserID());
+			pStatement.setInt(2, ZonedDateTime.now(ZoneId.of("US/Central")).getYear());
+			rTimeSheetID = pStatement.executeQuery();
+			
+			sql = "INSERT INTO \"p0\".timePeriodEntries(userID, timeSheetID, payPeriod, wagePerHour) "
+					+ "VALUES(?, ?, ?, ?)";
+			
+			pStatement = conn.prepareStatement(sql);
+			pStatement.setInt(1, user.getUserID());
+			rTimeSheetID.next();
+			pStatement.setInt(2, rTimeSheetID.getInt("timeSheetID"));
+			rPayPeriod.next();
+			pStatement.setInt(3, rPayPeriod.getInt("payPeriod"));
+			pStatement.setDouble(4, user.getWage());
+			pStatement.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			
 			e.printStackTrace();
 		}
 	}

@@ -25,7 +25,7 @@ public class ManagerMenu extends Menu {
 		user.setUserType(LoginMenu.user.getUserType());
 		
 		System.out.println("=======================================");
-		System.out.println("Welcome " + QueryFormationControl.getName(LoginMenu.user));
+		System.out.println("Welcome " + QueryFormationControl.getNameWage(LoginMenu.user));
 		System.out.println("=======================================");
 		System.out.println("1. Add Employee");
 		System.out.println("2. Remove Employee");
