@@ -14,7 +14,8 @@ public class MainMenu extends Menu {
 		super();
 		this.in = in;
 	}
-
+	
+	//displays the main menu in the console
 	@Override
 	public boolean display(Menu menus, boolean terminate, Logger log) {
 		log.info("In the main menu");
@@ -30,7 +31,8 @@ public class MainMenu extends Menu {
 		
 		return terminate;
 	}
-
+	
+	//user can select to login, enter as a guest, or exit
 	@Override
 	public boolean menuSelection(Menu menus, boolean terminate, Logger log) {
 		switch(ValidationMethods.menuValidation(in)) {

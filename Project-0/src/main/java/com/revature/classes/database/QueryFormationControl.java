@@ -302,4 +302,32 @@ public class QueryFormationControl {
 			log.debug("Failed to add weekly entry", e);
 		}
 	}
+
+	//updates users username and password
+	public static void updatingUserPass(User user, Scanner in, Logger log) {
+		String name = null;
+		String pass = null;
+		
+		try(Connection conn = DbsManager.getConnection()){
+			ResultSet rEntry = null;
+		
+			String sql = "UPDATE \"p0\".userAuth SET userName = ?, userPass = ? "
+					+ "WHERE userID = " + user.getUserID();
+		
+			PreparedStatement pStatement = conn.prepareStatement(sql);
+			System.out.println("Enter a username: ");
+			name = in.nextLine();
+			pStatement.setString(1, name);
+			System.out.println("Enter a password: ");
+			pass = in.nextLine();
+			pStatement.setString(2, pass);
+			pStatement.executeUpdate();
+			
+			user.setUsername(name);
+			user.setPassword(pass);
+
+		} catch (SQLException e) {
+			log.debug("Failed to update users password", e);
+		}
+	}
 }

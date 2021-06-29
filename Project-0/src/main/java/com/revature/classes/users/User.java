@@ -1,6 +1,7 @@
 package com.revature.classes.users;
 
 public class User {
+	//users properties
 	private int userID;
 	private String name;
 	private String userType;
@@ -8,6 +9,8 @@ public class User {
 	private String password;
 	private double wage;
 	
+	
+	//methods to get and set user properties
 	public String getUserType() {
 		return userType;
 	}

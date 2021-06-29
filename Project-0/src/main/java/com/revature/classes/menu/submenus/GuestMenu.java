@@ -14,6 +14,8 @@ public class GuestMenu extends Menu {
 		super();
 		this.in = in;
 	}
+	
+	//displays guest menu
 	@Override
 	public boolean display(Menu menus, boolean terminate, Logger log) {
 		log.info("In the guest menu");
@@ -29,6 +31,7 @@ public class GuestMenu extends Menu {
 		return terminate;
 	}
 	
+	//user can either return to the main menu or exit
 	@Override
 	public boolean menuSelection(Menu menus, boolean terminate, Logger log) {
 		switch(ValidationMethods.menuValidation(in)) {

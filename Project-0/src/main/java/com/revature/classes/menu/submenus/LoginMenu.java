@@ -18,6 +18,7 @@ public class LoginMenu extends Menu {
 		this.in = in;
 	}
 	
+	//displays the login menu, and asks user for username and password
 	@Override
 	public boolean display(Menu menus, boolean terminate, Logger log) {
 		log.info("In the login menu");
@@ -32,11 +33,13 @@ public class LoginMenu extends Menu {
 			String password = in.nextLine();
 			user.setPassword(password);
 			if(QueryFormationControl.tryLogin(user)) {
+				//if user logins in with correct credentials
 				log.info("User successfully logged in");
 				loginTryAgain = false;
 				terminate = menuSelection(menus, terminate, log);
 			}
 			else {
+				//if user uses invalid credentials
 				log.info("User failed to login");
 				System.out.println("1. Continue");
 				System.out.println("2. MainMenu");
@@ -53,6 +56,7 @@ public class LoginMenu extends Menu {
 	@Override
 	public boolean menuSelection(Menu menus, boolean terminate, Logger log) {
 		if(loginTryAgain == true) {
+			//switch used for invalid credentials
 			switch(ValidationMethods.menuValidation(in)) {
 				case 1:
 					loginTryAgain = true;
@@ -64,12 +68,15 @@ public class LoginMenu extends Menu {
 			}
 		}
 		else {
+			//switch used for valid credentials
 			switch(QueryFormationControl.getUserType(user, log)) {
 				case "employee":
+					//if user is an employee
 					menus = new EmployeeMenu(new Scanner(System.in));
 					terminate = menus.display(menus, terminate, log);
 					break;
 				case "manager":
+					//if user is a manager
 					menus = new ManagerMenu(new Scanner(System.in));
 					terminate = menus.display(menus, terminate, log);
 					break;

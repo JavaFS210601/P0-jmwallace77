@@ -12,7 +12,9 @@ import com.revature.classes.menu.Menu;
 import com.revature.classes.menu.submenus.MainMenu;
 
 public class Launcher {
+	//creates logs and appends to Logs.txt
 	private static final Logger log = LogManager.getLogger(Launcher.class);
+	
 	//used for switching menus based on user input
 	static Menu menus; 
 	

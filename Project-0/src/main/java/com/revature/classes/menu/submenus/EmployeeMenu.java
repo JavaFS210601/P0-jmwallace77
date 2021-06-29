@@ -17,7 +17,8 @@ public class EmployeeMenu extends Menu{
 		super();
 		this.in = in;
 	}
-
+	
+	//displays the employees menu
 	@Override
 	public boolean display(Menu menus, boolean terminate, Logger log) {
 		log.info("In the employee menu");
@@ -31,14 +32,17 @@ public class EmployeeMenu extends Menu{
 		System.out.println("Welcome " + QueryFormationControl.getNameWage(user, log));
 		System.out.println("=======================================");
 		System.out.println("1. Time Sheet");
-		System.out.println("2. Main");
-		System.out.println("3. Exit");
+		System.out.println("2. Change Username & Password");
+		System.out.println("3. Main");
+		System.out.println("4. Exit");
 		System.out.println("=======================================");
 
 		terminate = menuSelection(menus, terminate, log);
 		
 		return terminate;
 	}
+	
+	//user can either add a time sheet and entries, return to main menu, or exit
 	@Override
 	public boolean menuSelection(Menu menus, boolean terminate, Logger log) {
 		switch(ValidationMethods.menuValidation(in)) {
@@ -48,10 +52,14 @@ public class EmployeeMenu extends Menu{
 				terminate = menus.display(menus, terminate, log);
 				break;
 			case 2:
-				menus = new MainMenu(new Scanner(System.in));
+				user.changeUsernamePassword(user, in, log);
 				terminate = menus.display(menus, terminate, log);
 				break;
 			case 3:
+				menus = new MainMenu(new Scanner(System.in));
+				terminate = menus.display(menus, terminate, log);
+				break;
+			case 4:
 				terminate = true;
 				break;
 		}

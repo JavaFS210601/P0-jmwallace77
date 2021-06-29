@@ -4,3 +4,101 @@
 2021-06-26 11:22:40 INFO  Launcher:19 - In the guest menu
 2021-06-26 11:22:41 INFO  Launcher:20 - In the main menu
 2021-06-26 11:22:45 INFO  Launcher:19 - In the guest menu
+2021-06-28 13:02:37 INFO  Launcher:28 - Connection Successful
+2021-06-28 13:02:37 INFO  Launcher:21 - In the main menu
+2021-06-28 13:02:39 INFO  Launcher:21 - In the guest menu
+2021-06-28 13:02:40 INFO  Launcher:21 - In the main menu
+2021-06-28 13:02:42 INFO  Launcher:24 - In the login menu
+2021-06-28 13:02:44 INFO  Launcher:43 - User failed to login
+2021-06-28 13:02:46 INFO  Launcher:21 - In the main menu
+2021-06-29 08:32:13 INFO  Launcher:28 - Connection Successful
+2021-06-29 08:32:13 INFO  Launcher:21 - In the main menu
+2021-06-29 08:32:16 INFO  Launcher:24 - In the login menu
+2021-06-29 08:32:24 INFO  Launcher:37 - User successfully logged in
+2021-06-29 08:32:24 INFO  Launcher:24 - In the employee menu
+2021-06-29 08:32:39 INFO  Launcher:24 - In the employee menu
+2021-06-29 08:33:23 DEBUG Launcher:330 - Failed to update users password
+org.postgresql.util.PSQLException: ERROR: relation "userauth" does not exist
+  Position: 8
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:153) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:119) ~[postgresql-42.2.14.jar:42.2.14]
+	at com.revature.classes.database.QueryFormationControl.updatingUserPass(QueryFormationControl.java:324) [classes/:?]
+	at com.revature.classes.users.usertypes.Employee.changeUsernamePassword(Employee.java:34) [classes/:?]
+	at com.revature.classes.menu.submenus.EmployeeMenu.menuSelection(EmployeeMenu.java:55) [classes/:?]
+	at com.revature.classes.menu.submenus.EmployeeMenu.display(EmployeeMenu.java:40) [classes/:?]
+	at com.revature.classes.menu.submenus.EmployeeMenu.menuSelection(EmployeeMenu.java:52) [classes/:?]
+	at com.revature.classes.menu.submenus.EmployeeMenu.display(EmployeeMenu.java:40) [classes/:?]
+	at com.revature.classes.menu.submenus.LoginMenu.menuSelection(LoginMenu.java:76) [classes/:?]
+	at com.revature.classes.menu.submenus.LoginMenu.display(LoginMenu.java:39) [classes/:?]
+	at com.revature.classes.menu.submenus.MainMenu.menuSelection(MainMenu.java:41) [classes/:?]
+	at com.revature.classes.menu.submenus.MainMenu.display(MainMenu.java:30) [classes/:?]
+	at com.revature.Launcher.main(Launcher.java:39) [classes/:?]
+2021-06-29 08:33:23 INFO  Launcher:24 - In the employee menu
+2021-06-29 08:34:11 INFO  Launcher:28 - Connection Successful
+2021-06-29 08:34:11 INFO  Launcher:21 - In the main menu
+2021-06-29 08:34:13 INFO  Launcher:24 - In the login menu
+2021-06-29 08:34:20 INFO  Launcher:37 - User successfully logged in
+2021-06-29 08:34:20 INFO  Launcher:24 - In the employee menu
+2021-06-29 08:34:40 DEBUG Launcher:330 - Failed to update users password
+org.postgresql.util.PSQLException: ERROR: relation "userauth" does not exist
+  Position: 8
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:153) ~[postgresql-42.2.14.jar:42.2.14]
+	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:119) ~[postgresql-42.2.14.jar:42.2.14]
+	at com.revature.classes.database.QueryFormationControl.updatingUserPass(QueryFormationControl.java:324) [classes/:?]
+	at com.revature.classes.users.usertypes.Employee.changeUsernamePassword(Employee.java:34) [classes/:?]
+	at com.revature.classes.menu.submenus.EmployeeMenu.menuSelection(EmployeeMenu.java:55) [classes/:?]
+	at com.revature.classes.menu.submenus.EmployeeMenu.display(EmployeeMenu.java:40) [classes/:?]
+	at com.revature.classes.menu.submenus.LoginMenu.menuSelection(LoginMenu.java:76) [classes/:?]
+	at com.revature.classes.menu.submenus.LoginMenu.display(LoginMenu.java:39) [classes/:?]
+	at com.revature.classes.menu.submenus.MainMenu.menuSelection(MainMenu.java:41) [classes/:?]
+	at com.revature.classes.menu.submenus.MainMenu.display(MainMenu.java:30) [classes/:?]
+	at com.revature.Launcher.main(Launcher.java:39) [classes/:?]
+2021-06-29 08:34:40 INFO  Launcher:24 - In the employee menu
+2021-06-29 08:37:06 INFO  Launcher:28 - Connection Successful
+2021-06-29 08:37:06 INFO  Launcher:21 - In the main menu
+2021-06-29 08:37:08 INFO  Launcher:24 - In the login menu
+2021-06-29 08:37:16 INFO  Launcher:37 - User successfully logged in
+2021-06-29 08:37:17 INFO  Launcher:24 - In the employee menu
+2021-06-29 08:37:22 INFO  Launcher:24 - In the employee menu
+2021-06-29 08:37:27 INFO  Launcher:21 - In the main menu
+2021-06-29 08:37:28 INFO  Launcher:24 - In the login menu
+2021-06-29 08:37:31 INFO  Launcher:37 - User successfully logged in
+2021-06-29 08:37:31 INFO  Launcher:24 - In the employee menu
+2021-06-29 08:37:38 INFO  Launcher:21 - In the main menu
+2021-06-29 08:37:41 INFO  Launcher:24 - In the login menu
+2021-06-29 08:37:50 INFO  Launcher:37 - User successfully logged in
+2021-06-29 08:37:50 INFO  Launcher:24 - In the manager menu
+2021-06-29 08:38:24 INFO  Launcher:24 - In the manager menu
+2021-06-29 08:38:28 INFO  Launcher:21 - In the main menu
+2021-06-29 08:38:29 INFO  Launcher:24 - In the login menu
+2021-06-29 08:38:39 INFO  Launcher:37 - User successfully logged in
+2021-06-29 08:38:40 INFO  Launcher:24 - In the manager menu
+2021-06-29 08:39:36 INFO  Launcher:28 - Connection Successful
+2021-06-29 08:39:36 INFO  Launcher:21 - In the main menu
+2021-06-29 08:39:39 INFO  Launcher:24 - In the login menu
+2021-06-29 08:39:46 INFO  Launcher:37 - User successfully logged in
+2021-06-29 08:39:47 INFO  Launcher:24 - In the manager menu
+2021-06-29 08:40:32 INFO  Launcher:24 - In the manager menu
+2021-06-29 08:40:36 INFO  Launcher:21 - In the main menu
+2021-06-29 08:40:37 INFO  Launcher:24 - In the login menu
+2021-06-29 08:40:43 INFO  Launcher:37 - User successfully logged in
+2021-06-29 08:40:43 INFO  Launcher:24 - In the manager menu
+2021-06-29 08:40:46 INFO  Launcher:21 - In the main menu
+2021-06-29 08:40:47 INFO  Launcher:24 - In the login menu
+2021-06-29 08:40:52 INFO  Launcher:37 - User successfully logged in
+2021-06-29 08:40:52 INFO  Launcher:24 - In the employee menu
+2021-06-29 08:41:03 INFO  Launcher:24 - In the employee menu
+2021-06-29 08:41:07 INFO  Launcher:21 - In the main menu
+2021-06-29 08:41:08 INFO  Launcher:24 - In the login menu
+2021-06-29 08:41:14 INFO  Launcher:37 - User successfully logged in
+2021-06-29 08:41:14 INFO  Launcher:24 - In the employee menu
