@@ -29,13 +29,13 @@ public class ManagerMenu extends Menu {
 		user.setUserType(LoginMenu.user.getUserType());
 		
 		System.out.println("=======================================");
-		System.out.println("Welcome " + QueryFormationControl.getNameWage(LoginMenu.user, log));
+		System.out.println("     Welcome " + QueryFormationControl.getNameWage(LoginMenu.user, log));
 		System.out.println("=======================================");
-		System.out.println("1. Add Employee");
-		System.out.println("2. Remove Employee");
-		System.out.println("3. Change Username & Password");
-		System.out.println("4. Main Menu");
-		System.out.println("5. Exit");
+		System.out.println("	1. Add Employee");
+		System.out.println("	2. Remove Employee");
+		System.out.println("	3. Change Username & Password");
+		System.out.println("	4. Main Menu");
+		System.out.println("	5. Exit");
 		System.out.println("=======================================");
 		
 		terminate = menuSelection(menus, terminate, log);

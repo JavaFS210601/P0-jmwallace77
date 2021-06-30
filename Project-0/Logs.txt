@@ -102,3 +102,47 @@ org.postgresql.util.PSQLException: ERROR: relation "userauth" does not exist
 2021-06-29 08:41:08 INFO  Launcher:24 - In the login menu
 2021-06-29 08:41:14 INFO  Launcher:37 - User successfully logged in
 2021-06-29 08:41:14 INFO  Launcher:24 - In the employee menu
+2021-06-29 16:48:13 INFO  Launcher:28 - Connection Successful
+2021-06-29 16:48:13 INFO  Launcher:21 - In the main menu
+2021-06-29 16:48:19 INFO  Launcher:24 - In the login menu
+2021-06-29 16:48:26 INFO  Launcher:43 - User failed to login
+2021-06-29 16:48:28 INFO  Launcher:21 - In the main menu
+2021-06-30 08:24:12 INFO  Launcher:28 - Connection Successful
+2021-06-30 08:24:12 INFO  Launcher:21 - In the main menu
+2021-06-30 08:24:35 INFO  Launcher:28 - Connection Successful
+2021-06-30 08:24:35 INFO  Launcher:21 - In the main menu
+2021-06-30 08:24:47 INFO  Launcher:28 - Connection Successful
+2021-06-30 08:24:47 INFO  Launcher:21 - In the main menu
+2021-06-30 08:27:49 INFO  Launcher:28 - Connection Successful
+2021-06-30 08:27:49 INFO  Launcher:21 - In the main menu
+2021-06-30 08:27:53 INFO  Launcher:24 - In the login menu
+2021-06-30 08:28:07 INFO  Launcher:43 - User failed to login
+2021-06-30 08:28:26 INFO  Launcher:21 - In the main menu
+2021-06-30 08:28:27 INFO  Launcher:24 - In the login menu
+2021-06-30 08:28:29 INFO  Launcher:43 - User failed to login
+2021-06-30 08:28:38 INFO  Launcher:37 - User successfully logged in
+2021-06-30 08:28:38 INFO  Launcher:24 - In the employee menu
+2021-06-30 08:29:04 INFO  Launcher:28 - Connection Successful
+2021-06-30 08:29:04 INFO  Launcher:21 - In the main menu
+2021-06-30 08:29:06 INFO  Launcher:24 - In the login menu
+2021-06-30 08:29:13 INFO  Launcher:37 - User successfully logged in
+2021-06-30 08:29:13 INFO  Launcher:24 - In the manager menu
+2021-06-30 08:30:05 INFO  Launcher:28 - Connection Successful
+2021-06-30 08:30:05 INFO  Launcher:21 - In the main menu
+2021-06-30 08:30:07 INFO  Launcher:24 - In the login menu
+2021-06-30 08:30:15 INFO  Launcher:37 - User successfully logged in
+2021-06-30 08:30:15 INFO  Launcher:24 - In the manager menu
+2021-06-30 08:30:36 INFO  Launcher:28 - Connection Successful
+2021-06-30 08:30:36 INFO  Launcher:21 - In the main menu
+2021-06-30 08:30:39 INFO  Launcher:24 - In the login menu
+2021-06-30 08:30:45 INFO  Launcher:37 - User successfully logged in
+2021-06-30 08:30:45 INFO  Launcher:24 - In the manager menu
+2021-06-30 08:31:12 INFO  Launcher:28 - Connection Successful
+2021-06-30 08:31:12 INFO  Launcher:21 - In the main menu
+2021-06-30 08:31:15 INFO  Launcher:24 - In the login menu
+2021-06-30 08:31:22 INFO  Launcher:37 - User successfully logged in
+2021-06-30 08:31:23 INFO  Launcher:24 - In the manager menu
+2021-06-30 08:31:39 INFO  Launcher:21 - In the main menu
+2021-06-30 08:31:40 INFO  Launcher:24 - In the login menu
+2021-06-30 08:31:46 INFO  Launcher:37 - User successfully logged in
+2021-06-30 08:31:46 INFO  Launcher:24 - In the employee menu

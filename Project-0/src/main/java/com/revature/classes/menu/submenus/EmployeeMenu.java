@@ -29,12 +29,12 @@ public class EmployeeMenu extends Menu{
 		user.setUserType(LoginMenu.user.getUserType());
 		
 		System.out.println("=======================================");
-		System.out.println("Welcome " + QueryFormationControl.getNameWage(user, log));
+		System.out.println("     Welcome " + QueryFormationControl.getNameWage(user, log));
 		System.out.println("=======================================");
-		System.out.println("1. Time Sheet");
-		System.out.println("2. Change Username & Password");
-		System.out.println("3. Main");
-		System.out.println("4. Exit");
+		System.out.println("	1. Time Sheet");
+		System.out.println("	2. Change Username & Password");
+		System.out.println("	3. Main");
+		System.out.println("	4. Exit");
 		System.out.println("=======================================");
 
 		terminate = menuSelection(menus, terminate, log);

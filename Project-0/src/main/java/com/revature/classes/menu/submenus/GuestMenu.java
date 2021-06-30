@@ -20,10 +20,10 @@ public class GuestMenu extends Menu {
 	public boolean display(Menu menus, boolean terminate, Logger log) {
 		log.info("In the guest menu");
 		System.out.println("=======================================");
-		System.out.println("Guest");
+		System.out.println("		Guest");
 		System.out.println("=======================================");
-		System.out.println("1. Main");
-		System.out.println("2. Exit");
+		System.out.println("	1. Main");
+		System.out.println("	2. Exit");
 		System.out.println("=======================================");
 		
 		terminate = menuSelection(menus, terminate, log);

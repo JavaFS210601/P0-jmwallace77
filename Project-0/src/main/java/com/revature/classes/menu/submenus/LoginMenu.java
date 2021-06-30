@@ -24,7 +24,7 @@ public class LoginMenu extends Menu {
 		log.info("In the login menu");
 		while(loginTryAgain) {
 			System.out.println("=======================================");
-			System.out.println("Login");
+			System.out.println("		Login");
 			System.out.println("=======================================");
 			System.out.println("Username: ");
 			String username = in.nextLine();
@@ -41,8 +41,8 @@ public class LoginMenu extends Menu {
 			else {
 				//if user uses invalid credentials
 				log.info("User failed to login");
-				System.out.println("1. Continue");
-				System.out.println("2. MainMenu");
+				System.out.println("	1. Continue");
+				System.out.println("	2. MainMenu");
 				System.out.println("=======================================");
 				terminate = menuSelection(menus, terminate, log);
 			}

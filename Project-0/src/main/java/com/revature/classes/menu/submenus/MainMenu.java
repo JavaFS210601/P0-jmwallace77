@@ -20,11 +20,11 @@ public class MainMenu extends Menu {
 	public boolean display(Menu menus, boolean terminate, Logger log) {
 		log.info("In the main menu");
 		System.out.println("=======================================");
-		System.out.println("Main");
+		System.out.println("		Home");
 		System.out.println("=======================================");
-		System.out.println("1. Login");
-		System.out.println("2. Guest");
-		System.out.println("3. Exit");
+		System.out.println("	1. Login");
+		System.out.println("	2. Guest");
+		System.out.println("	3. Exit");
 		System.out.println("=======================================");
 		
 		terminate = menuSelection(menus, terminate, log);
